@@ -48,17 +48,17 @@ class Fighter {
 //  Creates a character img element based on given id
 function setPlayerIMG(charaID) {
   //  Creates an img element
-  let player = document.createElement("img");
+  let playerIMG = document.createElement("img");
   //  adds the id attribute
-  player.setAttribute("id", charaID);
+  playerIMG.setAttribute("id", charaID);
   //  adds the class attribute
-  player.setAttribute("class", "fighterIMG");
+  playerIMG.setAttribute("class", "fighterIMG");
   //  adds the alt attribute
-  player.setAttribute("alt", charaID);
+  playerIMG.setAttribute("alt", charaID);
   //  adds the src attribute
-  player.setAttribute("src", "img/" + charaID + "_idle.png");
+  playerIMG.setAttribute("src", "img/" + charaID + "_idle.png");
   //  returns the html element that was created
-  return player;
+  return playerIMG;
 }
 
 function startup() {
