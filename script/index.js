@@ -4,6 +4,9 @@ const DEAFULT_ATK = 5;
 const DEAFULT_DEF = 5
 const DEAFULT_TEK = 5
 
+let playerTurn = false;
+
+
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
