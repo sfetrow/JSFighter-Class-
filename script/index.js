@@ -5,18 +5,16 @@ const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
 const P0NAME = "Crash"
-const P0CHARA = "crashr"
+const P0ID = "crashr"
 const P1NAME = "Sam"
-const P1CHARA = "saml"
+const P1ID = "saml"
 
 let playerTurn = false;
 let logging = true;
 
-let playerTurn = false;
-
 
 class Fighter {
-  constructor(name, charaName) {
+  constructor(name, charaID) {
     //'contructor' is in all JS classes
     // It gets run immediately when a new object is created from a class
 
@@ -27,7 +25,7 @@ class Fighter {
     this.atk = DEFAULT_ATK;
     this.def = DEFAULT_DEF;
     this.tek = DEFAULT_TEK;
-    this.charaName = charaName;
+    this.charaID = charaID;
   }
   attack(target) {
     console.log(this.name + " attacked " + target.name)
@@ -45,25 +43,33 @@ class Fighter {
 }
 
 
+//  Creates a character img element based on given id
+function setPlayerIMG(charaID) {
+  //  Creates an img element
+  let player = document.createElement("img");
+  //  adds the id attribute
+  player.setAttribute("id", charaID);
+  //  adds the class attribute
+  player.setAttribute("class", "fighterIMG");
+  //  adds the alt attribute
+  player.setAttribute("alt", charaID);
+  //  adds the src attribute
+  player.setAttribute("src", "img/" + charaID + "_idle.png");
+  //  returns the html element that was created
+  return player;
+}
+
+
 let Player0;
 let Player1;
 
 function startup() {
-  Player0 = new Fighter(P0NAME, P0CHARA);
-  Player1 = new Fighter(P1NAME, P1CHARA);
+  Player0 = new Fighter(P0NAME, P0ID);
+  Player1 = new Fighter(P1NAME, P1ID);
+
+  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player0.charaID))
+  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player1.charaID))
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 }
-
-
-
-
-
-
-
-
-/*
-MHW = 'delicious'
-MHWoutput > MHWinput
-*/
