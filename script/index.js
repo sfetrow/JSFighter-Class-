@@ -16,7 +16,7 @@ let Player0;
 let Player1;
 
 class Fighter {
-  constructor(name, charaID) {
+  constructor(name, id) {
     //'contructor' is in all JS classes
     // It gets run immediately when a new object is created from a class
 
@@ -27,7 +27,7 @@ class Fighter {
     this.atk = DEFAULT_ATK;
     this.def = DEFAULT_DEF;
     this.tek = DEFAULT_TEK;
-    this.charaID = charaID;
+    this.id = id;
   }
   attack(target) {
     console.log(this.name + " attacked " + target.name)
@@ -46,17 +46,17 @@ class Fighter {
 
 
 //  Creates a character img element based on given id
-function setPlayerIMG(charaID) {
+function setPlayerIMG(chara) {
   //  Creates an img element
   let playerIMG = document.createElement("img");
   //  adds the id attribute
-  playerIMG.setAttribute("id", charaID);
+  playerIMG.setAttribute("id", chara.id);
   //  adds the class attribute
   playerIMG.setAttribute("class", "fighterIMG");
   //  adds the alt attribute
-  playerIMG.setAttribute("alt", charaID);
+  playerIMG.setAttribute("alt", chara.name);
   //  adds the src attribute
-  playerIMG.setAttribute("src", "img/" + charaID + "_idle.png");
+  playerIMG.setAttribute("src", "img/" + chara.id + "_idle.png");
   //  returns the html element that was created
   return playerIMG;
 }
@@ -65,8 +65,8 @@ function startup() {
   Player0 = new Fighter(P0NAME, P0ID);
   Player1 = new Fighter(P1NAME, P1ID);
 
-  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player0.charaID))
-  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player1.charaID))
+  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player0))
+  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player1))
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
