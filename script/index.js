@@ -1,5 +1,9 @@
 const START_HP = 20;
 const START_SP = 10;
+const DEAFULT_ATK = 5;
+const DEAFULT_DEF = 5
+const DEAFULT_TEK = 5
+
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
