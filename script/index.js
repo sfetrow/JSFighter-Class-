@@ -12,6 +12,8 @@ const P1ID = "saml"
 let playerTurn = false;
 let logging = true;
 
+let Player0;
+let Player1;
 
 class Fighter {
   constructor(name, charaID) {
@@ -58,10 +60,6 @@ function setPlayerIMG(charaID) {
   //  returns the html element that was created
   return player;
 }
-
-
-let Player0;
-let Player1;
 
 function startup() {
   Player0 = new Fighter(P0NAME, P0ID);
