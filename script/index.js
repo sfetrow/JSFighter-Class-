@@ -15,6 +15,13 @@ let logging = true;
 let Player0;
 let Player1;
 
+let gameBox;
+let headerBox;
+let graphicsBox;
+let barsBox;
+let controlsBox;
+let outputBox;
+
 class Fighter {
   constructor(name, id) {
     //'contructor' is in all JS classes
@@ -44,29 +51,22 @@ class Fighter {
   }
 }
 
-
-//  Creates a character img element based on given id
-function setPlayerIMG(chara) {
-  //  Creates an img element
-  let playerIMG = document.createElement("img");
-  //  adds the id attribute
-  playerIMG.setAttribute("id", chara.id);
-  //  adds the class attribute
-  playerIMG.setAttribute("class", "fighterIMG");
-  //  adds the alt attribute
-  playerIMG.setAttribute("alt", chara.name);
-  //  adds the src attribute
-  playerIMG.setAttribute("src", "img/" + chara.id + "_idle.png");
-  //  returns the html element that was created
-  return playerIMG;
-}
-
 function startup() {
   Player0 = new Fighter(P0NAME, P0ID);
   Player1 = new Fighter(P1NAME, P1ID);
 
   document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player0))
   document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player1))
+
+  gameBox = document.getElementById('gameBox');
+  headerBox = document.getElementById('headerBox');
+  graphicsBox = document.getElementById('graphicsBox');
+  barsBox = document.getElementById('barsBox');
+  controlsBox = document.getElementById('controlsBox');
+  outputBox = document.getElementById('outputBox');
+
+  graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
+  graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
