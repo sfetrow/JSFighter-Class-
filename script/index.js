@@ -37,9 +37,15 @@ class Fighter {
 let Player0;
 let Player1;
 
+let gameBox
+let headerBox
+let graphicsBox
+let 
+
 function startup() {
   Player0 = new Fighter("Crash", "crashr");
   Player1 = new Fighter("Sam", "saml");
+  document.getElementById('graphicsBox').innerHTML = "<img class="logos" src="img/logo.png" alt="">"
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
