@@ -49,6 +49,8 @@ function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
   Player1 = new Fighter(P1NAME, P1CHARA);
 
+document.getElementById('crashr_idle.png and saml_idle.png').innerHTML = '<img src="img/'+player0.charaName+'_idle.png">'
+
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 }
