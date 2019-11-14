@@ -1,13 +1,21 @@
+
 const START_HP = 20;
 const START_SP = 10;
 const DEFAULT_ATK = 5;
 const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
+<<<<<<< HEAD
 const P0NAME = "Crash"
 const P0ID = "crashr"
 const P1NAME = "Sam"
 const P1ID = "saml"
+=======
+const P0NAME = 'Crash'
+const P0CHARA = 'crashr'
+const P1NAME = 'Sam'
+const P1CHARA = 'saml'
+>>>>>>> upstream/Release-Candidate
 
 let playerTurn = false;
 let logging = true;
@@ -37,7 +45,7 @@ class Fighter {
     this.id = id;
   }
   attack(target) {
-    console.log(this.name + " attacked " + target.name)
+    console.log(this.name + ' attacked ' + target.name)
   }
   single(target) {
     this.attack(target);
@@ -47,7 +55,7 @@ class Fighter {
     this.attack(target);
   }
   recover() {
-    console.log("Recovered!")
+    console.log('Recovered!')
   }
 }
 
