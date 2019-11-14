@@ -52,6 +52,22 @@ class Fighter {
   }
 }
 
+
+function singleAttack() {
+  if(playerTurn == false){
+    Player0.single(Player1);
+    playerTurn = true;
+    console.log('Player turn is now true');
+  }
+  else{
+    Player1.single(Player0);
+    playerTurn = false;
+    console.log('Player turn is now false');
+  }
+}
+
+
+
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
   Player1 = new Fighter(P1NAME, P1CHARA);
@@ -65,6 +81,9 @@ function startup() {
 
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
+
+// Button for the actions
+  controlsBox.innerHTML = '<button onclick="singleAttack()">Single</button>'
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
