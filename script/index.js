@@ -5,17 +5,10 @@ const DEFAULT_ATK = 5;
 const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
-<<<<<<< HEAD
-const P0NAME = "Crash"
-const P0ID = "crashr"
-const P1NAME = "Sam"
-const P1ID = "saml"
-=======
 const P0NAME = 'Crash'
 const P0CHARA = 'crashr'
 const P1NAME = 'Sam'
 const P1CHARA = 'saml'
->>>>>>> upstream/Release-Candidate
 
 let playerTurn = false;
 let logging = true;
@@ -60,11 +53,8 @@ class Fighter {
 }
 
 function startup() {
-  Player0 = new Fighter(P0NAME, P0ID);
-  Player1 = new Fighter(P1NAME, P1ID);
-
-  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player0))
-  document.getElementById("graphicsBox").appendChild(setPlayerIMG(Player1))
+  Player0 = new Fighter(P0NAME, P0CHARA);
+  Player1 = new Fighter(P1NAME, P1CHARA);
 
   gameBox = document.getElementById('gameBox');
   headerBox = document.getElementById('headerBox');
