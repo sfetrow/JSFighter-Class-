@@ -41,7 +41,9 @@ class Fighter {
 
   //this logs who attacked who
   attack(target) {
-    console.log(this.name + ' attacked ' + target.name);
+    this.hp = (this.hp - target.atk)
+    console.log(target.name + " attacked " + this.name + " for " + target.atk + " damage!")
+    console.log(this.name + " has " + this.hp + " health remaining!")
   }
 
   single(target) {
@@ -80,6 +82,7 @@ function startup() {
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 
   showControls() //runs the showControls() function
+
 }
 
 function showControls() {
@@ -89,9 +92,10 @@ function showControls() {
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
   } else {
     //show buttons for player0 and overwrites player1's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attacks!</button>'
   }
 }
+
 
 /*
 
