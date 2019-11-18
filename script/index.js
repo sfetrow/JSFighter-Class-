@@ -41,9 +41,7 @@ class Fighter {
 
   //this logs who attacked who
   attack(target) {
-    this.hp = (this.hp - target.atk)
-    console.log(target.name + " attacked " + this.name + " for " + target.atk + " damage!")
-    console.log(this.name + " has " + this.hp + " health remaining!")
+    console.log(this.name + ' attacked ' + target.name);
   }
 
   single(target) {
