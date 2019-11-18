@@ -80,6 +80,7 @@ function startup() {
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 
   showControls() //runs the showControls() function
+  koCheck() // This calls the function koCheck()
 }
 
 function showControls() {
@@ -93,10 +94,28 @@ function showControls() {
   }
 }
 
-/*
+function koCheck() {
+  if (Player0.hp <= 0) {
+    outputBox.innerHTML = '<p>PLayer 1 wins!</p>'
 
-MHW = 'delicious'
+  } else {
+    outputBox.innerHTML = '<p>Keep going!</p>'
 
-MHWoutput > MHWinput
+  }
+}
+  function koCheck() {
+    if (Player1.hp <= 0) {
+      outputBox.innerHTML = '<p>PLayer 1 wins!</p>'
 
-*/
+    } else {
+      outputBox.innerHTML = '<p>Keep going!</p>'
+
+    }
+  }
+  /*
+
+  MHW = 'delicious'
+
+  MHWoutput > MHWinput
+
+  */
