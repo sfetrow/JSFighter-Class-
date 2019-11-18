@@ -1,4 +1,3 @@
-
 const START_HP = 20;
 const START_SP = 10;
 const DEFAULT_ATK = 5;
@@ -10,7 +9,7 @@ const P0CHARA = 'crashr'
 const P1NAME = 'Sam'
 const P1CHARA = 'saml'
 
-let playerTurn = false;
+let playerTurn = true;
 let logging = true;
 
 let Player0;
@@ -68,8 +67,30 @@ function startup() {
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+  showControls()
 }
 
+function kocheck(target, amount) {
+  target.hp = target.hp - amount
+  console.log(target.hp);
+  if (target.hp <= 0) {
+    return true
+  } else {
+    return false
+  }
+}
+
+
+
+function showControls() {
+  if (playerTurn == true) {
+    // show player 0 controls
+    controlsBox.innerHTML = '<button onclick="Player0.single(Player1)">Attack</button>'
+  } else {
+    //show player 1 controls
+    controlsBox.innerHTML = '<button onclick="Player1.single(Player0)">Attack</button>'
+  }
+}
 
 
 
