@@ -47,7 +47,10 @@ class Fighter {
 
   //this logs who attacked who
   attack(target) {
-    console.log(this.name + ' attacked ' + target.name);
+    let damageDone = Math.floor(Math.random() * 5) + 1;
+    console.log(koCheck(target, damageDone))
+    console.log(this.name + ' attacked ' + target.name + ' doing ' + damageDone + ' points of damage!');
+    console.log(target.name + ' has ' + target.hp + ' hp points left!');
   }
 
   single(target) {
@@ -64,21 +67,6 @@ class Fighter {
     console.log('Recovered!');
   }
 }
-
-
-function singleAttack() {
-  if(playerTurn == false){
-    Player0.single(Player1);
-    playerTurn = true;
-    console.log('Player turn is now true');
-  }
-  else{
-    Player1.single(Player0);
-    playerTurn = false;
-    console.log('Player turn is now false');
-  }
-}
-
 
 
 function startup() {
@@ -176,10 +164,13 @@ function updateBars() {
   barsBox.innerHTML += '<div class="spBar"><div style="height:' + player1PercentSP + '%; width: 100%;" id="p1SPfill" class="SPfill"></div></div>'
 }
 
-function hideContols() {
-  controlsBox.innerHTML = "";
+function hideControls(koCheck) {
+  if(kocheck == true){
+   controlsBox.innerHTML = "";
+  }else {
+    console.log(target.name + ' is still in the fight!');
+  }
 }
-
 /*
 
 MHW = 'delicious'
