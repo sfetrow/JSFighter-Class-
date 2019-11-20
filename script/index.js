@@ -180,11 +180,6 @@ function hideControls() {
   controlsBox.innerHTML = ""; ``
 }
 
-
-
-
-
-
 /*
 
 MHW = 'delicious'
