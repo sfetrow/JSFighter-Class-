@@ -161,13 +161,24 @@ function updateBars() {
   barsBox.innerHTML += '<div class="spBar"><div style="height:' + player1PercentSP + '%; width: 100%;" id="p1SPfill" class="SPfill"></div></div>'
 }
 
+// EndTurn code
+function endTurn() {
+  playerTurn = !playerTurn
+  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+    hideControls();
+  }
+}
+
 function hideContols() {
   controlsBox.innerHTML = "";
 }
 
-function koCheck() {
-  if (Player0.hp <= 0) {
-    outputBox.innerHTML = '<p>PLayer 1 wins!</p>'
+
+
+
+
+
+/*
 
   } else {
     outputBox.innerHTML = '<p>Keep going!</p>'
