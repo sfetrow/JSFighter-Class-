@@ -90,9 +90,6 @@ function update
 
 
 
-<<<<<<< HEAD
-
-=======
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
@@ -111,7 +108,6 @@ function hideContols() {
 
 
 /*
->>>>>>> upstream/Release-Candidate
 
 /*
 MHW = 'delicious'
