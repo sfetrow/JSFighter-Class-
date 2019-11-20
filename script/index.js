@@ -97,7 +97,7 @@ function showControls() {
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
   } else {
     //show buttons for player0 and overwrites player1's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attacks!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
   }
 }
 //checks the target's HP is less than or equal to 0, Then retuns true or false.
@@ -115,8 +115,8 @@ function updateBars() {
   //calculates the percent of HP
   player0PercentHP = (Player0.hp / START_HP) * 100
   player1PercentHP = (Player1.hp / START_HP) * 100
-  player0PercentHP = (Player0.sp / START_SP) * 100
-  player1PercentHP = (Player1.sp / START_SP) * 100
+  player0PercentSP = (Player0.sp / START_SP) * 100
+  player1PercentSP = (Player1.sp / START_SP) * 100
 
   //Makes sure Player0's health is not greater than 100% or less than 0%
   if (player0PercentHP <= 0) {
