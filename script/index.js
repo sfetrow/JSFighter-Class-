@@ -88,6 +88,7 @@ function startup() {
 
   showControls() //runs the showControls() function
   updateBars() //runs the updateBars() function
+  koCheck() // This calls the function koCheck()
 }
 
 function showControls() {
@@ -164,10 +165,28 @@ function hideContols() {
   controlsBox.innerHTML = "";
 }
 
-/*
+function koCheck() {
+  if (Player0.hp <= 0) {
+    outputBox.innerHTML = '<p>PLayer 1 wins!</p>'
 
-MHW = 'delicious'
+  } else {
+    outputBox.innerHTML = '<p>Keep going!</p>'
 
-MHWoutput > MHWinput
+  }
+}
+  function koCheck() {
+    if (Player1.hp <= 0) {
+      outputBox.innerHTML = '<p>PLayer 1 wins!</p>'
 
-*/
+    } else {
+      outputBox.innerHTML = '<p>Keep going!</p>'
+
+    }
+  }
+  /*
+
+  MHW = 'delicious'
+
+  MHWoutput > MHWinput
+
+  */
