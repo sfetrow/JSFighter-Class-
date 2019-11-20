@@ -104,19 +104,38 @@ function showControls() {
   //checks to see which players turn it is and show the apropriate controls
   if (playerTurn) {
     //show buttons for player1 and overwrites player0's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0); showControls();">Single Attack!</button>'
+    playerTurn = false;
+    updateBars();
+    koCheck(Player1, 1);
+
+
+
   } else {
     //show buttons for player0 and overwrites player1's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1); showControls();">Single Attack!</button>'
+    playerTurn = true;
+    updateBars();
+    koCheck(Player0, 1);
+
   }
 }
+
+
+
 //checks the target's HP is less than or equal to 0, Then retuns true or false.
 function koCheck(target, amount) {
-  target.hp = target.hp - amount;
   if (target.hp <= 0) {
+    console.log(target.name + " has been crushed into oblivion");
+    console.log("");
     return true;
   } else {
+    target.hp = target.hp - amount;
+    console.log(target.name + "\'s HP: " + target.hp);
+    console.log("");
     return false;
+
+
   }
 }
 
