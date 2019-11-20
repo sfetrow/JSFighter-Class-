@@ -90,7 +90,28 @@ function update
 
 
 
+<<<<<<< HEAD
 
+=======
+// EndTurn code
+function endTurn() {
+  playerTurn = !playerTurn
+  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+    hideControls();
+  }
+}
+
+function hideContols() {
+  controlsBox.innerHTML = "";
+}
+
+
+
+
+
+
+/*
+>>>>>>> upstream/Release-Candidate
 
 /*
 MHW = 'delicious'
