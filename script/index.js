@@ -49,8 +49,19 @@ class Fighter {
   attack(target) {
     console.log(this.name + ' attacked ' + target.name); //logs attack
     let damage = (Math.round(Math.random() + 1) * this.atk) //Does the attack with a random chance to be double. this is done by getting random number between one and zero, converts it to just one or zero and adds one to it making it randomly one or two. then it takes the one or two times the damage to deal random double damage
-    outputBox.innerHTML += '<br>' + this.name + ' attacked ' + target.name + ' for ' + damage +  ' damage!' // outputs to the outputbox
-    koCheck(target, damage); //runs ko check
+    let reducedDamage = Math.round(damage / 4)
+    let dodge = Math.round(Math.random())
+
+    if (dodge) {
+      outputBox.innerHTML += '<br>' + target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage'; // outputs to the outputbox
+      damage = reducedDamage
+      koCheck(target, damage); //runs ko check
+    } else {
+      outputBox.innerHTML += '<br>' + this.name + ' attacked ' + target.name + ' for ' + damage + ' damage!' // outputs to the outputbox
+      koCheck(target, damage); //runs ko check
+    }
+
+
   }
 
   single(target) {
@@ -168,7 +179,7 @@ function updateBars() {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)) {
     hideControls();
     updateBars();
   } else {
@@ -177,7 +188,7 @@ function endTurn() {
 }
 
 function hideControls() {
-  controlsBox.innerHTML = ""; ``
+  controlsBox.innerHTML = '';
 }
 
 /*
