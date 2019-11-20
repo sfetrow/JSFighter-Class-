@@ -115,8 +115,8 @@ function updateBars() {
   //calculates the percent of HP
   player0PercentHP = (Player0.hp / START_HP) * 100
   player1PercentHP = (Player1.hp / START_HP) * 100
-  player0PercentHP = (Player0.sp / START_SP) * 100
-  player1PercentHP = (Player1.sp / START_SP) * 100
+  player0PercentSP = (Player0.sp / START_SP) * 100
+  player1PercentSP = (Player1.sp / START_SP) * 100
 
   //Makes sure Player0's health is not greater than 100% or less than 0%
   if (player0PercentHP <= 0) {
@@ -154,10 +154,10 @@ function updateBars() {
     player1PercentSP = player1PercentSP
   }
   barsBox.innerHTML = ''
-  barsBox.innerHTML += 'P0<div class="hpBar"><div style="height:' + player0PercentHP + '%; width: 100%;" id="p0HPfill" class="HPfill"></div></div>'
-  barsBox.innerHTML += '<div class="spBar"><div style="height:' + player0PercentSP + '%; width: 100%;" id="p0SPfill" class="SPfill"></div></div>'
-  barsBox.innerHTML += 'P1<div class="hpBar"><div style="height:' + player1PercentHP + '%; width: 100%;" id="p1HPfill" class="HPfill"></div></div>'
-  barsBox.innerHTML += '<div class="spBar"><div style="height:' + player1PercentSP + '%; width: 100%;" id="p1SPfill" class="SPfill"></div></div>'
+  barsBox.innerHTML += 'P0<div class="hpBar"><div style="height:100%; width: ' + player0PercentHP + '%;" id="p0HPfill" class="HPfill"></div></div>'
+  barsBox.innerHTML += '<div class="spBar"><div style="height:100%; width: ' + player0PercentSP + '%;" id="p0SPfill" class="SPfill"></div></div>'
+  barsBox.innerHTML += 'P1<div class="hpBar"><div style="height:100%; width: ' + player1PercentHP + '%;" id="p1HPfill" class="HPfill"></div></div>'
+  barsBox.innerHTML += '<div class="spBar"><div style="height:100%; width: ' + player1PercentSP + '%;" id="p1SPfill" class="SPfill"></div></div>'
 }
 
 function hideContols() {
