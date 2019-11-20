@@ -55,11 +55,13 @@ class Fighter {
 
   single(target) {
     this.attack(target);
+    endTurn();
   }
 
   double(target) {
     this.attack(target);
     this.attack(target);
+    endTurn();
   }
 
   //this logs that they recovered
@@ -166,13 +168,16 @@ function updateBars() {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
+    updateBars();
+  } else {
+    showControls()
   }
 }
 
-function hideContols() {
-  controlsBox.innerHTML = "";
+function hideControls() {
+  controlsBox.innerHTML = ""; ``
 }
 
 
