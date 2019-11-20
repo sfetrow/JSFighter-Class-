@@ -47,7 +47,10 @@ class Fighter {
 
   //this logs who attacked who
   attack(target) {
-    console.log(this.name + ' attacked ' + target.name);
+    console.log(this.name + ' attacked ' + target.name); //logs attack
+    let damage = (Math.round(Math.random() + 1) * this.atk) //Does the attack with a random chance to be double. this is done by getting random number between one and zero, converts it to just one or zero and adds one to it making it randomly one or two. then it takes the one or two times the damage to deal random double damage
+    outputBox.innerHTML += '<br>' + this.name + ' attacked ' + target.name + ' for ' + damage +  ' damage!' // outputs to the outputbox
+    koCheck(target, damage); //runs ko check
   }
 
   single(target) {
