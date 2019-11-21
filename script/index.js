@@ -174,6 +174,9 @@ function endTurn() {
   }else{
     showControls();
   }
+  else {
+    showControls();
+  }
 }
 
 function hideControls() {
