@@ -28,9 +28,9 @@ let headerBox;
 let graphicsBox;
 let barsBox;
 let controlsBox;
-let outPutBox;
+let outputBox;
 
-// creating a varible to show in the outPutBox
+// creating a varible to show in the outputBox
 let currentText;
 
 
@@ -62,11 +62,11 @@ class Fighter {
   single(target) {
     this.attack(target);
 
-    //creating text for outPutBox
-      currentText = outPutBox.innerHTML;
-      outPutBox.innerHTML = this.name + ' attacked ' + target.name + ' doing ' + damageDone + ' points of damage! ' + target.name + ' has ' + target.hp + ' hp points left!';
-      outPutBox.innerHTML += "<br>";
-      outPutBox.innerHTML += currentText;
+    //creating text for outputBox
+      currentText = outputBox.innerHTML;
+      outputBox.innerHTML = this.name + ' attacked ' + target.name + ' doing ' + damageDone + ' points of damage! ' + target.name + ' has ' + target.hp + ' hp points left!';
+      outputBox.innerHTML += "<br>";
+      outputBox.innerHTML += currentText;
 
 
     endTurn();
@@ -94,7 +94,7 @@ function startup() {
   graphicsBox = document.getElementById('graphicsBox');
   barsBox = document.getElementById('barsBox');
   controlsBox = document.getElementById('controlsBox');
-  outPutBox = document.getElementById('outPutBox');
+  outputBox = document.getElementById('outputBox');
 
 
   //this shows the fighter images in the graphics box
