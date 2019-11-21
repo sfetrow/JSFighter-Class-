@@ -65,10 +65,6 @@ class Fighter {
   }
 }
 
-//  Updates the controls for the corresponding person's turn
-function showControls() {
-  controlsBox.innerHTML = '<button onclick="' + ((playerTurn) ? 'Player1' : 'Player0') + '.single(' + ((!playerTurn) ? 'Player1' : 'Player0') + ')">Single Attack</button>'
-}
 
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
