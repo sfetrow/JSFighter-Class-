@@ -29,7 +29,7 @@ let graphicsBox;
 let barsBox;
 let controlsBox;
 let outputBox;
-
+let sp;
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
@@ -62,6 +62,23 @@ class Fighter {
   //this logs that they recovered
   recover() {
     console.log('Recovered!');
+
+    //save old text
+    let oldtext = outputBox.innerHTML
+    //if they have enough Sp
+    if (this.sp >=3) {
+      //minus 3 sp from total sp
+      this.sp = this.sp- 3;
+      //calculate recovery
+       let recovery = this.tek * 2;
+       //heal player
+       koCheck(this,-recovery);
+       outputBox.innerHTML = this.name + ' Recovered ' + recovery;
+    } else{
+      outputBox.innerHTML = "not enough SP"
+
+    }
+endTurn()
   }
 }
 
@@ -163,7 +180,7 @@ function updateBars() {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
   }
   else {
