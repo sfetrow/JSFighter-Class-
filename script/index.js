@@ -48,13 +48,14 @@ class Fighter {
   //this logs who attacked who
   attack(target) {
     let damageDone = Math.floor(Math.random() * 5) + 1;
-    console.log(koCheck(target, damageDone))
+    console.log(koCheck(target, damageDone));
     console.log(this.name + ' attacked ' + target.name + ' doing ' + damageDone + ' points of damage!');
     console.log(target.name + ' has ' + target.hp + ' hp points left!');
   }
 
   single(target) {
     this.attack(target);
+    endTurn();
   }
 
   double(target) {
@@ -108,6 +109,7 @@ function showControls() {
 function koCheck(target, amount) {
   target.hp = target.hp - amount;
   if (target.hp <= 0) {
+    hideControls();
     return true;
   } else {
     return false;
@@ -167,12 +169,14 @@ function updateBars() {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
+  }else{
+    showControls();
   }
 }
 
-function hideContols() {
+function hideControls() {
   controlsBox.innerHTML = "";
 }
 
