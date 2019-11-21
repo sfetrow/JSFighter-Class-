@@ -30,6 +30,12 @@ let barsBox;
 let controlsBox;
 let outputBox;
 
+// creating a varible to show in the outputBox
+let currentText;
+
+
+let damageDone;
+
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
@@ -47,7 +53,7 @@ class Fighter {
 
   //this logs who attacked who
   attack(target) {
-    let damageDone = Math.floor(Math.random() * 5) + 1;
+    damageDone = Math.floor(Math.random() * 5) + 1;
     console.log(koCheck(target, damageDone));
     console.log(this.name + ' attacked ' + target.name + ' doing ' + damageDone + ' points of damage!');
     console.log(target.name + ' has ' + target.hp + ' hp points left!');
@@ -55,6 +61,14 @@ class Fighter {
 
   single(target) {
     this.attack(target);
+
+    //creating text for outputBox
+      currentText = outputBox.innerHTML;
+      outputBox.innerHTML = this.name + ' attacked ' + target.name + ' doing ' + damageDone + ' points of damage! ' + target.name + ' has ' + target.hp + ' hp points left!';
+      outputBox.innerHTML += "<br>";
+      outputBox.innerHTML += currentText;
+
+
     endTurn();
   }
 
@@ -172,9 +186,6 @@ function endTurn() {
   if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
   }else{
-    showControls();
-  }
-  else {
     showControls();
   }
 }
