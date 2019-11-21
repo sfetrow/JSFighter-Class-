@@ -65,7 +65,6 @@ class Fighter {
   }
 }
 
-
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
   Player1 = new Fighter(P1NAME, P1CHARA);
