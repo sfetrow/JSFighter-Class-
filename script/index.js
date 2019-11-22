@@ -46,7 +46,7 @@ class Fighter {
     let reducedDamage = Math.round(damage / 4)
     let dodge = Math.round(Math.random())
     if (dodge) {
-      outputBox.innerHTML += '<br>' + target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage'; // outputs to the outputbox
+      outputBox.innerHTML += '<br>' + target.name + ' dodged ' + this.name + '\'s attack and was only hit for ' + reducedDamage + ' damage'; // outputs to the outputbox
       damage = reducedDamage
       koCheck(target, damage); //runs ko check
     } else {
