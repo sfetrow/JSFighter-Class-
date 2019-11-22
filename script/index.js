@@ -178,7 +178,7 @@ function endTurn() {
 
 function hideControls() {
 
-  controlsBox.innerHTML = '';
+  controlsBox.innerHTML = '<button type="button" value="Refresh Page" name="refresh" onClick="window.location.reload();">Refresh </button>';
 }
 
 
