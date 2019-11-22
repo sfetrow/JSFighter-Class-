@@ -41,18 +41,22 @@ class Fighter {
   //this logs who attacked who
   attack(target) {
     console.log(this.name + ' attacked ' + target.name); //logs attack
-    let damage = (Math.round(Math.random() + 1) * this.atk); //Does the attack with a random chance to be double. this is done by getting random number between one and zero, converts it to just one or zero and adds one to it making it randomly one or two. then it takes the one or two times the damage to deal random double damage
-    let reducedDamage = Math.round(damage / 4);
-    let dodge = Math.round(Math.random());
+
+    let damage = (Math.round(Math.random() + 1) * this.atk) //Does the attack with a random chance to be double. this is done by getting random number between one and zero, converts it to just one or zero and adds one to it making it randomly one or two. then it takes the one or two times the damage to deal random double damage
+    let reducedDamage = Math.round(damage / 4)
+    let dodge = Math.round(Math.random())
     if (dodge) {
       outputBox.innerHTML += '<br>' + target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage'; // outputs to the outputbox
       damage = reducedDamage
+      document.getElementById(this.charaName).src = 'img/' + this.charaName + '_attack.png';
+      document.getElementById(target.charaName).src = 'img/' + target.charaName + '_dodge.png';
       koCheck(target, damage); //runs ko check
     } else {
-      outputBox.innerHTML += '<br>' + this.name + ' attacked ' + target.name + ' for ' + damage + ' damage!'; // outputs to the outputbox
+      outputBox.innerHTML += '<br>' + this.name + ' attacked ' + target.name + ' for ' + damage + ' damage!' // outputs to the outputbox
+      document.getElementById(this.charaName).src = 'img/' + this.charaName + '_attack.png';
+      document.getElementById(target.charaName).src = 'img/' + target.charaName + '_hit.png';
       koCheck(target, damage); //runs ko check
     }
-    outputBox.innerHTML += '<br>' + target.name + ' has ' + target.hp + ' health remaining'
   }
 
   single(target) {
@@ -71,21 +75,22 @@ class Fighter {
     console.log('Recovered!');
 
     //save old text
-    let oldtext = outputBox.innerHTML;
+    let oldtext = outputBox.innerHTML
     //if they have enough Sp
-    if (this.sp >= 3) {
+    if (this.sp >=3) {
       //minus 3 sp from total sp
-      this.sp = this.sp - 3;
+      this.sp = this.sp- 3;
       //calculate recovery
-      let recovery = this.tek * 2;
-      //heal player
-      koCheck(this, -recovery);
-      outputBox.innerHTML = this.name + ' Recovered ' + recovery;
-    } else {
+       let recovery = this.tek * 2;
+       //heal player
+       koCheck(this,-recovery);
+       outputBox.innerHTML = this.name + ' Recovered ' + recovery;
+       document.getElementById(this.charaName).src = 'img/' + this.charaName + '_spell.png';
+    } else{
       outputBox.innerHTML = "not enough SP"
 
     }
-    endTurn()
+endTurn()
   }
 
 
@@ -122,15 +127,13 @@ function showControls() {
   if (playerTurn) {
     //show buttons for player1 and overwrites player0's controls
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>';
-    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player1.double(Player0)">Double Attack!</button><br>';
-    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player1.recover(Player0)">Recover</button><br>';
+    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player1.double(Player0)">Double Attack!</button><br>'
+    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player1.recover(Player0)">Recover</button><br>'
   } else {
     //show buttons for player0 and overwrites player1's controls
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>';
-    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player0.double(Player1)">Double Attack!</button><br>';
-    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player0.recover(Player1)">Recover</button><br>';
-
-
+    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player0.double(Player1)">Double Attack!</button><br>'
+    controlsBox.innerHTML += '<br><button type="button" name="attack" onclick="Player0.recover(Player1)">Recover</button><br>'
   }
 }
 
@@ -138,13 +141,13 @@ function showControls() {
 function koCheck(target, amount) {
   target.hp = target.hp - amount;
   if (target.hp <= 0) {
+    document.getElementById(target.charaName).src = 'img/' + target.charaName + '_ko.png';
     hideControls();
     return true;
   } else {
     return false;
   }
 }
-
 
 //This function takes all the info to build an HP or SP bar, and ensure it is not greater than 100 or less than 0
 function updateBar(player, hpsp, min, max) {
@@ -154,7 +157,9 @@ function updateBar(player, hpsp, min, max) {
   } else if (calculated < 0) {
     calculated = 0;
   }
+
   return '<div class="' + hpsp + 'Bar"><div style="width:' + calculated + '%;" id="p0' + hpsp + 'Fill" class="' + hpsp + 'Fill">' + min + '</div></div>';
+
 }
 
 //This function makes the hp/sp bars and places them in the barsBox useing the updateBar
@@ -168,12 +173,12 @@ function updateBars() {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (koCheck(Player0, 0) || koCheck(Player1, 0)) {
-
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
     updateBars();
   } else {
-    showControls();
+    showControls()
+
     updateBars();
   }
 }
