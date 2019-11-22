@@ -48,10 +48,13 @@ class Fighter {
     if (dodge) {
       outputBox.innerHTML += '<br>' + target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage'; // outputs to the outputbox
       damage = reducedDamage
-      graphicsBox.innerHTML = '<img id ="' + target.charaName + '" src="img/' + target.charaName + '_idle.dodge" alt="' + target.name + '" class="fighterIMG">';
+      document.getElementById(this.charaName).src = 'img/' + this.charaName + '_attack.png';
+      document.getElementById(target.charaName).src = 'img/' + target.charaName + '_dodge.png';
       koCheck(target, damage); //runs ko check
     } else {
       outputBox.innerHTML += '<br>' + this.name + ' attacked ' + target.name + ' for ' + damage + ' damage!' // outputs to the outputbox
+      document.getElementById(this.charaName).src = 'img/' + this.charaName + '_attack.png';
+      document.getElementById(target.charaName).src = 'img/' + target.charaName + '_hit.png';
       koCheck(target, damage); //runs ko check
     }
   }
@@ -82,6 +85,7 @@ class Fighter {
        //heal player
        koCheck(this,-recovery);
        outputBox.innerHTML = this.name + ' Recovered ' + recovery;
+       document.getElementById(this.charaName).src = 'img/' + this.charaName + '_spell.png';
     } else{
       outputBox.innerHTML = "not enough SP"
 
@@ -137,6 +141,7 @@ function showControls() {
 function koCheck(target, amount) {
   target.hp = target.hp - amount;
   if (target.hp <= 0) {
+    document.getElementById(target.charaName).src = 'img/' + target.charaName + '_ko.png';
     return true;
   } else {
     return false;
@@ -144,7 +149,7 @@ function koCheck(target, amount) {
 }
 
 // EndTurn code
-function endTurn() {
+function endTurn(target) {
   playerTurn = !playerTurn
   if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
@@ -177,7 +182,6 @@ function updateBars() {
 function endTurn() {
   playerTurn = !playerTurn
   if (koCheck(Player0, 0) || koCheck(Player1, 0)){
-
     hideControls();
     updateBars();
   } else {
