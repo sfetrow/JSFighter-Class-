@@ -148,9 +148,6 @@ function endTurn() {
     showControls()
     updateBars();
   }
-  else {
-    showControls();
-  }
 }
 
 function hideControls() {
