@@ -62,9 +62,21 @@ class Fighter {
   }
 
   //this logs that they recovered
-  recover() {
-    console.log('Recovered!');
+  recover(target) {
+    let healthHealed = Math.floor(Math.random() * 5) + 1;
+    if (((target.hp < START_HP) && (target.sp > 0)))  {
+      target.hp = target.hp + healthHealed;
+      target.sp = target.sp - 15;
+      console.log(target.name + ' Recovered ' + healthHealed + ' health');
+      endTurn();
+    } else {
+      return;
+    }
   }
+
+
+
+
 }
 
 function startup() {
@@ -91,9 +103,11 @@ function showControls() {
   if (playerTurn) {
     //show buttons for player1 and overwrites player0's controls
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
+    controlsBox.innerHTML += '<button type="button" name="recover" onclick="Player1.recover(Player1)">Recover!</button>'
   } else {
     //show buttons for player0 and overwrites player1's controls
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
+    controlsBox.innerHTML += '<button type="button" name="recover" onclick="Player0.recover(Player0)">Recover!</button>'
   }
 }
 
@@ -160,7 +174,9 @@ function updateBars() {
 
 // EndTurn code
 function endTurn() {
-  updateBars();
+  updateBars(); //Updates Bars
+  Player0.sp = Player0.sp + (Math.floor(Math.random() * 2) + 1);
+  Player1.sp = Player1.sp + (Math.floor(Math.random() * 2) + 1);
   playerTurn = !playerTurn
   if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
