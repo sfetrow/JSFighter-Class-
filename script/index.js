@@ -5,10 +5,10 @@ const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
 //sets constants names
-const P0NAME = 'Crash'
-const P0CHARA = 'crashr'
-const P1NAME = 'Sam'
-const P1CHARA = 'saml'
+const P0NAME = 'Crash';
+const P0CHARA = 'crashr';
+const P1NAME = 'Sam';
+const P1CHARA = 'saml';
 
 let playerTurn = false;
 let logging = true;
@@ -87,25 +87,26 @@ function startup() {
 
 
   //this shows the fighter images in the graphics box
-  graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
-  graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
+  graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">';
+  graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">';
 
 
-  console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
-  console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+  console.log('My name is ' + Player0.name + ' and my ATK is ' + Player0.atk);
+  console.log('My name is ' + Player1.name + ' and my ATK is ' + Player1.atk);
 
-  showControls() //runs the showControls() function
-  updateBars() //updates the bars
+
+  showControls(); //runs the showControls() function
+  updateBars(); //runs the updateBars() function
 }
 
 function showControls() {
   //checks to see which players turn it is and show the apropriate controls
   if (playerTurn) {
     //show buttons for player1 and overwrites player0's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>';
   } else {
     //show buttons for player0 and overwrites player1's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>';
   }
 }
 //checks the target's HP is less than or equal to 0, Then retuns true or false.
@@ -150,7 +151,9 @@ function endTurn() {
   }
 }
 
+
 function hideControls() {
+
   controlsBox.innerHTML = '';
 }
 
