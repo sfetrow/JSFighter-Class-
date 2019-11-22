@@ -41,16 +41,19 @@ class Fighter {
 
   //this logs who attacked who
   attack(target) {
+    let oldText = outputBox.innerHTML;  //save old text
     console.log(this.name + ' attacked ' + target.name); //logs attack
     let damage = (Math.round(Math.random() + 1) * this.atk) //Does the attack with a random chance to be double. this is done by getting random number between one and zero, converts it to just one or zero and adds one to it making it randomly one or two. then it takes the one or two times the damage to deal random double damage
     let reducedDamage = Math.round(damage / 4)
     let dodge = Math.round(Math.random())
     if (dodge) {
-      outputBox.innerHTML += '<br>' + target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage'; // outputs to the outputbox
+      outputBox.innerHTML = target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage' + '<br><br>'; // outputs to the outputbox
+      outputBox.innerHTML += oldText;
       damage = reducedDamage
       koCheck(target, damage); //runs ko check
     } else {
-      outputBox.innerHTML += '<br>' + this.name + ' attacked ' + target.name + ' for ' + damage + ' damage!' // outputs to the outputbox
+      outputBox.innerHTML = this.name + ' attacked ' + target.name + ' for ' + damage + ' damage!' + '<br><br>';// outputs to the outputbox
+      outputBox.innerHTML += oldText;
       koCheck(target, damage); //runs ko check
     }
   }
@@ -71,7 +74,7 @@ class Fighter {
     console.log('Recovered!');
 
     //save old text
-    let oldtext = outputBox.innerHTML
+    let oldText = outputBox.innerHTML
     //if they have enough Sp
     if (this.sp >=3) {
       //minus 3 sp from total sp
@@ -80,10 +83,11 @@ class Fighter {
        let recovery = this.tek * 2;
        //heal player
        koCheck(this,-recovery);
-       outputBox.innerHTML = this.name + ' Recovered ' + recovery;
+       outputBox.innerHTML = this.name + ' Recovered ' + recovery + '<br><br>';
+       outputBox.innerHTML += oldText;
     } else{
-      outputBox.innerHTML = "not enough SP"
-
+      outputBox.innerHTML = "not enough SP" + '<br><br>';
+      outputBox.innerHTML += oldText;
     }
 endTurn()
   }
