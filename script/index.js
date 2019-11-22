@@ -63,14 +63,14 @@ class Fighter {
 
   //this logs that they recovered
   recover(target) {
-    let healthHealed = Math.floor(Math.random() * 5) + 1;
-    if (((target.hp < START_HP) && (target.sp > 0)))  {
-      target.hp = target.hp + healthHealed;
-      target.sp = target.sp - 15;
-      console.log(target.name + ' Recovered ' + healthHealed + ' health');
-      endTurn();
+    let healthHealed = Math.floor(Math.random() * 5) + 1; //Sets healthHealed to a random number between 1 & 5
+    if (((target.hp < START_HP) && (target.sp > 0)))  {//If targets stats aren't too low or too high
+      target.hp = target.hp + healthHealed; //Heals
+      target.sp = target.sp - 15; //Depletes SP
+      console.log(target.name + ' Recovered ' + healthHealed + ' health'); //Logs
+      endTurn(); //Ends the turn
     } else {
-      return;
+      return; //Does Nothing
     }
   }
 
@@ -175,8 +175,8 @@ function updateBars() {
 // EndTurn code
 function endTurn() {
   updateBars(); //Updates Bars
-  Player0.sp = Player0.sp + (Math.floor(Math.random() * 2) + 1);
-  Player1.sp = Player1.sp + (Math.floor(Math.random() * 2) + 1);
+  Player0.sp = Player0.sp + (Math.floor(Math.random() * 2) + 1); //Adds 1 to 2 SP per turn to Player0
+  Player1.sp = Player1.sp + (Math.floor(Math.random() * 2) + 1); //Adds 1 to 2 SP per turn to Player1
   playerTurn = !playerTurn
   if (koCheck(Player0, 0) || koCheck(Player1, 0)){
     hideControls();
