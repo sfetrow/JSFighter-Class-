@@ -32,22 +32,19 @@ h1 {
 
 }
 
-.HPfill {
+.hpFill {
     background-color: #33FF33;
 }
 
-.SPfill {
+.spFill {
     background-color: #3333FF;
 }
 
-.hpBar {
+.HPBar {
     background-color: #AA6666;
 }
 
-.hpBar {
-    background-color: #AA6666;
-}
-.spBar {
+.SPBar {
     background-color: #AA6666;
 }
 
