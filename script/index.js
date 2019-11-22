@@ -56,6 +56,7 @@ class Fighter {
 
       koCheck(target, damage); //runs ko check
     }
+    outputBox.innerHTML += '<br>' + target.name + ' has ' + target.hp + ' health remaining'
   }
 
   single(target) {
@@ -77,9 +78,9 @@ class Fighter {
     let oldText = outputBox.innerHTML
 
     //if they have enough Sp
-    if (this.sp >=3) {
+    if (this.sp >= 3) {
       //minus 3 sp from total sp
-      this.sp = this.sp- 3;
+      this.sp = this.sp - 3;
       //calculate recovery
        let recovery = this.tek * 2;
        //heal player
@@ -91,8 +92,9 @@ class Fighter {
       outputBox.innerHTML = "not enough SP" + '<br><br>';
       outputBox.innerHTML += oldText;
 
+
     }
-endTurn();
+    endTurn()
   }
 
 
@@ -174,8 +176,8 @@ function updateBars() {
 
 // EndTurn code
 function endTurn() {
-  playerTurn = !playerTurn;
-  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
+  playerTurn = !playerTurn
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)) {
 
     hideControls();
     updateBars();
@@ -184,7 +186,6 @@ function endTurn() {
     updateBars();
   }
 }
-
 
 function hideControls() {
 
