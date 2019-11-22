@@ -156,10 +156,10 @@ function updateBar(player, hpsp, min, max) {
 
 //This function makes the hp/sp bars and places them in the barsBox useing the updateBar
 function updateBars() {
-  barsBox.innerHTML = updateBar(Player0, 'hp', Player0.hp, START_HP)
-  barsBox.innerHTML += updateBar(Player0, 'sp', Player0.sp, START_SP)
-  barsBox.innerHTML += updateBar(Player1, 'hp', Player1.hp, START_HP)
-  barsBox.innerHTML += updateBar(Player1, 'sp', Player1.sp, START_SP)
+  barsBox.innerHTML = updateBar(Player0, 'hp', Player0.hp, START_HP);
+  barsBox.innerHTML += updateBar(Player0, 'sp', Player0.sp, START_SP);
+  barsBox.innerHTML += updateBar(Player1, 'hp', Player1.hp, START_HP);
+  barsBox.innerHTML += updateBar(Player1, 'sp', Player1.sp, START_SP);
 }
 
 // EndTurn code
