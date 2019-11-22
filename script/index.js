@@ -90,10 +90,10 @@ function startup() {
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
   //this shows the fighter images in the graphics box
-  graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
-  graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
-  console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
-  console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+  graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">';
+  graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">';
+  console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk);
+  console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk);
   showControls() //runs the showControls() function
   updateBars() //runs the updateBars() function
 }
@@ -102,12 +102,12 @@ function showControls() {
   //checks to see which players turn it is and show the apropriate controls
   if (playerTurn) {
     //show buttons for player1 and overwrites player0's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
-    controlsBox.innerHTML += '<button type="button" name="recover" onclick="Player1.recover(Player1)">Recover!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>';
+    controlsBox.innerHTML += '<button type="button" name="recover" onclick="Player1.recover(Player1)">Recover!</button>';
   } else {
     //show buttons for player0 and overwrites player1's controls
-    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
-    controlsBox.innerHTML += '<button type="button" name="recover" onclick="Player0.recover(Player0)">Recover!</button>'
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>';
+    controlsBox.innerHTML += '<button type="button" name="recover" onclick="Player0.recover(Player0)">Recover!</button>';
   }
 }
 
@@ -131,45 +131,45 @@ function updateBars() {
 
   //Makes sure Player0's health is not greater than 100% or less than 0%
   if (player0PercentHP <= 0) {
-    player0PercentHP = 0
+    player0PercentHP = 0;
   } else if (player0PercentHP > 100) {
-    player0PercentHP = 100
+    player0PercentHP = 100;
   } else {
-    player0PercentHP = player0PercentHP
+    player0PercentHP = player0PercentHP;
   }
 
   //Makes sure Player1's health is not greater than 100% or less than 0%
   if (player1PercentHP <= 0) {
-    player1PercentHP = 0
+    player1PercentHP = 0;
   } else if (player1PercentHP > 100) {
-    player1PercentHP = 100
+    player1PercentHP = 100;
   } else {
-    player1PercentHP = player1PercentHP
+    player1PercentHP = player1PercentHP;
   }
 
   //Makes sure Player0's SP is not greater than 100% or less than 0%
   if (player0PercentSP <= 0) {
-    player0PercentSP = 0
+    player0PercentSP = 0;
   } else if (player0PercentSP > 100) {
-    player0PercentSP = 100
+    player0PercentSP = 100;
   } else {
-    player0PercentSP = player0PercentSP
+    player0PercentSP = player0PercentSP;
   }
 
   //Makes sure Player1's SP is not greater than 100% or less than 0%
   if (player1PercentSP <= 0) {
-    player1PercentSP = 0
+    player1PercentSP = 0;
   } else if (player1PercentSP > 100) {
-    player1PercentSP = 100
+    player1PercentSP = 100;
   } else {
-    player1PercentSP = player1PercentSP
+    player1PercentSP = player1PercentSP;
   }
 
-  barsBox.innerHTML = ''
-  barsBox.innerHTML += 'P0<div class="hpBar"><div style="height: 100%; width:' + player0PercentHP + '%;" id="p0HPfill" class="HPfill"></div></div>'
-  barsBox.innerHTML += '<div class="spBar"><div style="height: 100%; width:' + player0PercentSP + '%;" id="p0SPfill" class="SPfill"></div></div>'
-  barsBox.innerHTML += 'P1<div class="hpBar"><div style="height: 100%; width:' + player1PercentHP + '%;" id="p1HPfill" class="HPfill"></div></div>'
-  barsBox.innerHTML += '<div class="spBar"><div style="height: 100%; width:' + player1PercentSP + '%;" id="p1SPfill" class="SPfill"></div></div>'
+  barsBox.innerHTML = '';
+  barsBox.innerHTML += 'P0<div class="hpBar"><div style="height: 100%; width:' + player0PercentHP + '%;" id="p0HPfill" class="HPfill"></div></div>';
+  barsBox.innerHTML += '<div class="spBar"><div style="height: 100%; width:' + player0PercentSP + '%;" id="p0SPfill" class="SPfill"></div></div>';
+  barsBox.innerHTML += 'P1<div class="hpBar"><div style="height: 100%; width:' + player1PercentHP + '%;" id="p1HPfill" class="HPfill"></div></div>';
+  barsBox.innerHTML += '<div class="spBar"><div style="height: 100%; width:' + player1PercentSP + '%;" id="p1SPfill" class="SPfill"></div></div>';
 }
 
 // EndTurn code
@@ -178,9 +178,9 @@ function endTurn() {
   Player0.sp = Player0.sp + (Math.floor(Math.random() * 2) + 1); //Adds 1 to 2 SP per turn to Player0
   Player1.sp = Player1.sp + (Math.floor(Math.random() * 2) + 1); //Adds 1 to 2 SP per turn to Player1
   playerTurn = !playerTurn
-  if (koCheck(Player0, 0) || koCheck(Player1, 0)){
+  if (koCheck(Player0, 0) || koCheck(Player1, 0)) {
     hideControls();
-  }else{
+  } else{
     showControls();
   }
 }
