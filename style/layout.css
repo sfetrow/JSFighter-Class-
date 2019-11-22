@@ -37,10 +37,10 @@ h1 {
     display: flex;
     justify-content: space-around;
 }
-.HPBar {
+.hpBar {
     width: 25%;
 }
-.SPBar {
+.spBar {
     width: 18%;
 }
 
