@@ -42,9 +42,9 @@ class Fighter {
   attack(target) {
     console.log(this.name + ' attacked ' + target.name); //logs attack
 
-    let damage = (Math.round(Math.random() + 1) * this.atk) //Does the attack with a random chance to be double. this is done by getting random number between one and zero, converts it to just one or zero and adds one to it making it randomly one or two. then it takes the one or two times the damage to deal random double damage
-    let reducedDamage = Math.round(damage / 6)
-    let dodge = Math.round(Math.random())
+    let damage = (Math.round(Math.random() + 1) * this.atk); //Does the attack with a random chance to be double. this is done by getting random number between one and zero, converts it to just one or zero and adds one to it making it randomly one or two. then it takes the one or two times the damage to deal random double damage
+    let reducedDamage = Math.round(damage / 6);
+    let dodge = Math.round(Math.random());
     if (dodge) {
       outputBox.innerHTML += '<br>' + target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage'; // outputs to the outputbox
       damage = reducedDamage
@@ -84,18 +84,14 @@ class Fighter {
        let recovery = this.tek * 2;
        //heal player
        koCheck(this,-recovery);
-       outputBox.innerHTML = this.name + ' Recovered ' + recovery;
+       outputBox.innerHTML += '<br>' + this.name + ' Recovered ' + recovery;
        document.getElementById(this.charaName).src = 'img/' + this.charaName + '_spell.png';
     } else{
-      outputBox.innerHTML = "not enough SP"
+      outputBox.innerHTML += '<br>' + "Not enough SP"
 
     }
-    endTurn()
+    endTurn();
   }
-
-
-
-
 }
 
 
@@ -177,7 +173,7 @@ function endTurn() {
     hideControls();
     updateBars();
   } else {
-    showControls()
+    showControls();
 
     updateBars();
   }
