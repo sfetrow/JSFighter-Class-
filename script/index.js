@@ -10,6 +10,9 @@ const P0CHARA = 'crashr';
 const P1NAME = 'Sam';
 const P1CHARA = 'saml';
 
+const SPLOSS = 3
+const RECOVER = 2
+
 let playerTurn = false;
 let logging = true;
 let Player0;
@@ -77,11 +80,11 @@ class Fighter {
     //save old text
     let oldtext = outputBox.innerHTML
     //if they have enough Sp
-    if (this.sp >= 3) {
+    if (this.sp >= SPLOSS) {
       //minus 3 sp from total sp
-      this.sp = this.sp - 3;
+      this.sp = this.sp - SPLOSS;
       //calculate recovery
-       let recovery = this.tek * 2;
+       let recovery = this.tek * RECOVER;
        //heal player
        koCheck(this,-recovery);
        outputBox.innerHTML += '<br>' + this.name + ' Recovered ' + recovery;
