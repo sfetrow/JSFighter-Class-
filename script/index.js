@@ -1,6 +1,6 @@
-const START_HP = 20;
-const START_SP = 10;
-const DEFAULT_ATK = 5;
+const START_HP = 100;
+const START_SP = 25;
+const DEFAULT_ATK = 10;
 const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
@@ -48,15 +48,15 @@ class Fighter {
     if (dodge) {
       outputBox.innerHTML = target.name + ' dodged ' + this.name + '\'s attack and was hit only hit for ' + reducedDamage + ' damage' + '<br><br>'; // outputs to the outputbox
       outputBox.innerHTML += oldText;
+      outputBox.innerHTML += target.name + ' has ' + target.hp + ' health remaining' + '<br><br>';
       damage = reducedDamage
       koCheck(target, damage); //runs ko check
     } else {
       outputBox.innerHTML = this.name + ' attacked ' + target.name + ' for ' + damage + ' damage!' + '<br><br>'; // outputs to the outputbox
       outputBox.innerHTML += oldText;
-
+outputBox.innerHTML += target.name + ' has ' + target.hp + ' health remaining' + '<br><br>';
       koCheck(target, damage); //runs ko check
     }
-    outputBox.innerHTML += '<br>' + target.name + ' has ' + target.hp + ' health remaining'
   }
 
   single(target) {
@@ -65,8 +65,18 @@ class Fighter {
   }
 
   double(target) {
-    this.attack(target);
-    this.attack(target);
+
+    //save old text
+    let oldText = outputBox.innerHTML
+
+    if(this.sp >= 5){
+      this.sp = this.sp - 5;
+      this.attack(target);
+      this.attack(target);
+    }else {
+        outputBox.innerHTML = "not enough SP" + '<br><br>';
+        outputBox.innerHTML += oldText;
+    }
     endTurn();
   }
 
@@ -88,11 +98,8 @@ class Fighter {
       outputBox.innerHTML = this.name + ' Recovered ' + recovery + '<br><br>';
       outputBox.innerHTML += oldText;
     } else {
-
       outputBox.innerHTML = "not enough SP" + '<br><br>';
       outputBox.innerHTML += oldText;
-
-
     }
     endTurn()
   }
