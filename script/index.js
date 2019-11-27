@@ -102,7 +102,7 @@ class Fighter {
       //minus 3 sp from total sp
       this.sp = this.sp - SPLOSS;
       //calculate recovery
-      let recovery = this.tek * 2;
+      let recovery = this.tek * RECOVER;
       //heal player
       koCheck(this, -recovery);
       outputBox.innerHTML = this.name + ' Recovered ' + recovery + '<br><br>';
