@@ -1,8 +1,6 @@
 const START_HP = 100;
-const START_SP = 10;
-const DEFAULT_ATK = 10;
 const START_SP = 20;
-const DEFAULT_ATK = 5;
+const DEFAULT_ATK = 10;
 const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
@@ -98,6 +96,7 @@ class Fighter {
     let oldtext = outputBox.innerHTML
 
     //if they have enough Sp
+
     if (this.sp >= SPLOSS) {
       //minus 3 sp from total sp
       this.sp = this.sp - SPLOSS;
@@ -189,7 +188,15 @@ function updateBars() {
 
 // EndTurn code
 function endTurn() {
-  playerTurn = !playerTurn
+  playerTurn = !playerTurn;
+  //  adds 1 sp to the player who's turn is switched to
+  //  stops from overfilling
+  if (Player0.sp < START_SP) {
+    Player0.sp += !playerTurn;
+  }
+  if (Player1.sp < START_SP) {
+    Player1.sp += playerTurn;
+  }
   if (koCheck(Player0, 0) || koCheck(Player1, 0)) {
     hideControls();
     updateBars();
