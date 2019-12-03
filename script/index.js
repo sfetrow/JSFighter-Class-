@@ -1,5 +1,5 @@
 const START_HP = 100;
-const START_SP = 20;
+const START_SP = 10;
 const DEFAULT_ATK = 10;
 const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
@@ -9,9 +9,11 @@ const P0NAME = 'Crash';
 const P0CHARA = 'crashr';
 const P1NAME = 'Sam';
 const P1CHARA = 'saml';
-
-const SPLOSS = 3
-const RECOVER = 2
+// const created for sp loss
+const RECOVER_SP_LOSS = 3;
+const DOUBLE_SP_LOSS = 5;
+// const created for amont of HP gain
+const RECOVER = 2;
 
 let playerTurn = false;
 let logging = true;
@@ -77,8 +79,8 @@ class Fighter {
     //save old text
     let oldText = outputBox.innerHTML
 
-    if(this.sp >= 5){
-      this.sp = this.sp - 5;
+    if(this.sp >= DOUBLE_SP_LOSS){
+      this.sp = this.sp - DOUBLE_SP_LOSS;
       this.attack(target);
       this.attack(target);
     }else {
@@ -93,13 +95,13 @@ class Fighter {
     console.log('Recovered!');
 
     //save old text
-    let oldtext = outputBox.innerHTML
+    let oldText = outputBox.innerHTML
 
     //if they have enough Sp
 
-    if (this.sp >= SPLOSS) {
+    if (this.sp >= RECOVER_SP_LOSS) {
       //minus 3 sp from total sp
-      this.sp = this.sp - SPLOSS;
+      this.sp = this.sp - RECOVER_SP_LOSS;
       //calculate recovery
       let recovery = this.tek * RECOVER;
       //heal player
